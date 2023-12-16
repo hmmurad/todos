@@ -1,0 +1,20 @@
+<div class="bg-gray-100 p-5" *ngIf="todoCount()">
+  <div
+    class="flex justify-between uppercase items-center gap-5 text-gray-400 border-b border-gray-300 py-1 last:border-b-0"
+    *ngFor="let item of this.todoService.todoSig()"
+  >
+    <div class="flex justify-start items-center gap-5 font-semibold">
+      <div>
+        <input type="checkbox" class="" />
+      </div>
+      <a href="" class="tracking-wider">{{ item.text }}</a>
+    </div>
+
+    <button
+      (click)="deleteTodo(item)"
+      class="text-xs border border-gray-300 px-2 py-1 tracking-wider rounded-lg uppercase font-semibold bg-orange-500 bg-opacity-80 text-white"
+    >
+      remove
+    </button>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="w-full">
+  <input
+    [value]="text"
+    (keyup)="changeText($event)"
+    (keyup.enter)="addTodo()"
+    type="text"
+    class="w-full p-5 rounded-t-lg placeholder:text-slate-400 font-semibold focus:border-0 outline-none"
+    placeholder="Add todo here"
+  />
+</div>
