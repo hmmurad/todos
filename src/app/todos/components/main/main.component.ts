@@ -1,12 +1,13 @@
-import { Component, computed, inject, signal } from '@angular/core';
-import { TodoService } from '../services/todo.service';
 import { NgFor, NgIf } from '@angular/common';
-import { Todo } from '../interface/todo.interface';
+import { Component, computed, inject } from '@angular/core';
+import { Todo } from '../../interface/todo.interface';
+import { TodoService } from '../../services/todo.service';
+import { TodoComponent } from '../todo/todo.component';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, TodoComponent],
   templateUrl: './main.component.html',
 })
 export class MainComponent {
