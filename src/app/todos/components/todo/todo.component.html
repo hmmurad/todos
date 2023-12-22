@@ -1,4 +1,4 @@
-<div class="flex justify-between items-center gap-5 py-2">
+<!-- <div class="flex justify-between items-center gap-5 py-2">
   <div
     class="flex justify-start items-center gap-5 text-gray-500 tracking-wider font-medium"
   >
@@ -8,13 +8,41 @@
         class="form-checkbox rounded-full p-4 focus:text-emerald-600 focus:ring-emerald-600 border-emerald-600 ring-1"
       />
     </div>
-    <a href="" class="tracking-wider">{{ todo.text }}</a>
+    <div>
+
+      <label (dblclick)="setID()" class="tracking-wider text-sm">{{ todo.text }}</label>
+    </div>
   </div>
 
+
+</div> -->
+
+
+<li class="flex items-center justify-between relative">
+  <div class="flex justify-start items-center gap-5">
+    <span>
+      <input
+      type="checkbox"
+      [checked]="todo.isCompleted"
+      (change)="toggleTodo()"
+      class="ml-2form-checkbox rounded-full p-2 focus:text-gray-300 focus:ring-gray-300 border-gray-300 ring-1"
+    />
+    </span>
+    <label [ngClass]="{lineThrough : todo.isCompleted}" (dblclick)="setID()" class="tracking-wider text-md text-gray-600 font-medium capitalize">{{ todo.text }}</label>
+  </div>
   <button
-    (click)="deleteTodo(todo)"
-    class="text-xs px-3 py-2 tracking-wider rounded-lg uppercase font-medium ring-[1px] ring-rose-500 text-rose-500"
-  >
-    remove
-  </button>
-</div>
+  (click)="deleteTodo(todo)"
+  class="text-md px-3 py-2 tracking-wider rounded-lg uppercase font-medium  text-rose-400"
+>
+  X
+</button>
+  <ng-container *ngIf="isEditing" class="absolute w-full">
+    <input 
+      class="absolute w-full text-gray-600" type="text" 
+      #inputText
+      [value]="editingText" 
+      (keyup)="changeText($event)" 
+      (keyup.enter)="updateTodo()">
+  </ng-container>
+
+</li>

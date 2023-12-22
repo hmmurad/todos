@@ -19,6 +19,5 @@ export class HeaderComponent {
     this.todoService.addTodo(this.text);
     this.text = '';
   }
-
   todoService = inject(TodoService);
 }
